@@ -1,58 +1,4 @@
 import React, { useState } from "react";
-import styled from "styled-components";
-
-const FAQContainer = styled.div`
-  width: 600px;
-  margin: 0 auto;
-  font-family: Arial, sans-serif;
-`;
-
-const FAQItem = styled.div`
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-bottom: 10px;
-`;
-
-const FAQHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: ${(props) => (props.isOpen ? "#ffaf4b" : "#f5f5f5")};
-  cursor: pointer;
-`;
-
-const FAQNumber = styled.div`
-  background-color: ${(props) => (props.isOpen ? "#ffaf4b" : "#f5f5f5")};
-  color: ${(props) => (props.isOpen ? "#fff" : "#000")};
-  padding: 5px;
-  border-radius: 3px;
-  margin-right: 10px;
-`;
-
-const FAQTitle = styled.div`
-  flex: 1;
-`;
-
-const FAQToggle = styled.div`
-  background-color: ${(props) => (props.isOpen ? "#007bff" : "#ffaf4b")};
-  color: #fff;
-  padding: 5px;
-  border-radius: 3px;
-`;
-
-const FAQContent = styled.div`
-  padding: 10px;
-  display: ${(props) => (props.isOpen ? "block" : "none")};
-  background-color: #fff;
-`;
-
-const Head = styled.h1`
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-`;
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -91,23 +37,58 @@ const FAQ = () => {
   ];
 
   return (
-    <FAQ>
-      <Head>FREQUENTLY ASKED QUESTIONS</Head>
-      <FAQContainer>
-        {faqs.map((faq, index) => (
-          <FAQItem key={index}>
-            <FAQHeader isOpen={openIndex === index} onClick={() => toggleFAQ(index)}>
-              <FAQNumber isOpen={openIndex === index}>{faq.number}</FAQNumber>
-              <FAQTitle>{faq.title}</FAQTitle>
-              <FAQToggle isOpen={openIndex === index}>
-                {openIndex === index ? "-" : "+"}
-              </FAQToggle>
-            </FAQHeader>
-            <FAQContent isOpen={openIndex === index}>{faq.content}</FAQContent>
-          </FAQItem>
-        ))}
-      </FAQContainer>
-    </FAQ>
+    <div style={{ width: '600px', margin: '0 auto', fontFamily: 'Arial, sans-serif' }}>
+      <h1 style={{ textAlign: 'center', fontSize: '24px', fontWeight: 'bold', marginBottom: '20px' }}>
+        FREQUENTLY ASKED QUESTIONS
+      </h1>
+      {faqs.map((faq, index) => (
+        <div key={index} style={{ border: '1px solid #ddd', borderRadius: '5px', marginBottom: '10px' }}>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              padding: '10px',
+              backgroundColor: openIndex === index ? '#ffaf4b' : '#f5f5f5',
+              cursor: 'pointer',
+            }}
+            onClick={() => toggleFAQ(index)}
+          >
+            <div
+              style={{
+                backgroundColor: openIndex === index ? '#ffaf4b' : '#f5f5f5',
+                color: openIndex === index ? '#fff' : '#000',
+                padding: '5px',
+                borderRadius: '3px',
+                marginRight: '10px',
+              }}
+            >
+              {faq.number}
+            </div>
+            <div style={{ flex: 1 }}>{faq.title}</div>
+            <div
+              style={{
+                backgroundColor: openIndex === index ? '#007bff' : '#ffaf4b',
+                color: '#fff',
+                padding: '5px',
+                borderRadius: '3px',
+              }}
+            >
+              {openIndex === index ? '-' : '+'}
+            </div>
+          </div>
+          <div
+            style={{
+              padding: '10px',
+              display: openIndex === index ? 'block' : 'none',
+              backgroundColor: '#fff',
+            }}
+          >
+            {faq.content}
+          </div>
+        </div>
+      ))}
+    </div>
   );
 };
 

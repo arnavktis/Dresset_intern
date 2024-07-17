@@ -10,6 +10,7 @@ import OurWork from "./assets/components/OurWork";
 import Feedback from "./assets/components/Feedback";
 import Footimg from "./assets/components/Footimg";
 import FAQ from "./assets/components/FAQ";
+import Footer from "./assets/components/Footer";
 
 
 function Content() {
@@ -17,11 +18,12 @@ function Content() {
     <div>
       <HeroSection></HeroSection>
       <About></About>
-      <Application></Application>
-      <OurWork></OurWork>
+      {/* <Application></Application> */}
+      {/* <OurWork></OurWork> */}
       <Feedback></Feedback>
-      <Footimg></Footimg>
+      <Footimg></Footimg> 
       <FAQ></FAQ>
+      <Footer></Footer>
     </div>
   );
 }

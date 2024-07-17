@@ -3,11 +3,10 @@ import React from 'react';
 const HeroSection = () => (
   <section style={{
     
-    position: 'absolute',
-    // padding: '60px 29px',
+    // position: 'absolute',
     backgroundColor: '#f0f0f0',
     height: '100vh',
-    width: "100%",
+    width: "100%%",
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',

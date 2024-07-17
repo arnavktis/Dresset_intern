@@ -5,7 +5,7 @@ const Footimg = () => {
     <>
         <img
             src={Hardtime}
-            style={{ width: "auto 678.83px", height: "320px" , margin: "130px",position: 'relative',
+            style={{ width: "auto 678.83px", height: "320px" ,
             top: '86vh'}}
             alt="hardtime"
         />
